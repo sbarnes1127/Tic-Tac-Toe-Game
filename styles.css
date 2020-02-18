@@ -5,7 +5,10 @@
 .row > div 
 {float: left;
  height: 100px;
- width: 100px; cursor: pointer;}
+ width: 100px; 
+ cursor: pointer; 
+ font-size: 75px;
+}
 
 .row 
 {clear: both;
