@@ -38,7 +38,12 @@ function toggle() {
 function checkWin(e) {
     if (document.getElementById('tl').textContent === "X" && document.getElementById('tm').textContent === "X" && document.getElementById('tr').textContent === "X" || 
         document.getElementById('ml').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('mr').textContent === "X" ||
-        document.getElementById('bl').textContent === "X" && document.getElementById('bm').textContent === "X" && document.getElementById('br').textContent === "X") {
+        document.getElementById('bl').textContent === "X" && document.getElementById('bm').textContent === "X" && document.getElementById('br').textContent === "X" ||
+        document.getElementById('tl').textContent === "X" && document.getElementById('ml').textContent === "X" && document.getElementById('bl').textContent === "X" ||
+        document.getElementById('tm').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('bm').textContent === "X" ||
+        document.getElementById('tr').textContent === "X" && document.getElementById('mr').textContent === "X" && document.getElementById('br').textContent === "X" ||
+        document.getElementById('tl').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('br').textContent === "X" ||
+        document.getElementById('tr').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('bl').textContent === "X") {
         endGame = true;
         alert("X Wins");
     }
