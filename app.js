@@ -1,10 +1,12 @@
 let cells = document.querySelectorAll('.row div');
 let turns = 0
-let player = ["X", "O"];
+let player = ["🔥", "❄️"];
 let endGame = false
+let turnCount = 0
 
 cells.forEach(function (cell) {
     cell.addEventListener("click", Move);
+
 })
 
 function Move(e) {
@@ -12,13 +14,14 @@ function Move(e) {
         restartGame();
         return;
     }
-    if (e.target.textContent === "X" || e.target.textContent === "O") {
+    if (e.target.textContent === "🔥" || e.target.textContent === "❄️") {
         return;
     }
     else {
 
         e.target.textContent = player[turns]
         toggle();
+        turnCount++;
         checkWin();
     }
 
@@ -36,31 +39,34 @@ function toggle() {
 }
 
 function checkWin(e) {
-    if (document.getElementById('tl').textContent === "X" && document.getElementById('tm').textContent === "X" && document.getElementById('tr').textContent === "X" ||
-        document.getElementById('ml').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('mr').textContent === "X" ||
-        document.getElementById('bl').textContent === "X" && document.getElementById('bm').textContent === "X" && document.getElementById('br').textContent === "X" ||
-        document.getElementById('tl').textContent === "X" && document.getElementById('ml').textContent === "X" && document.getElementById('bl').textContent === "X" ||
-        document.getElementById('tm').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('bm').textContent === "X" ||
-        document.getElementById('tr').textContent === "X" && document.getElementById('mr').textContent === "X" && document.getElementById('br').textContent === "X" ||
-        document.getElementById('tl').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('br').textContent === "X" ||
-        document.getElementById('tr').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('bl').textContent === "X") {
+    if (document.getElementById('tl').textContent === "🔥" && document.getElementById('tm').textContent === "🔥" && document.getElementById('tr').textContent === "🔥" ||
+        document.getElementById('ml').textContent === "🔥" && document.getElementById('c').textContent === "🔥" && document.getElementById('mr').textContent === "🔥" ||
+        document.getElementById('bl').textContent === "🔥" && document.getElementById('bm').textContent === "🔥" && document.getElementById('br').textContent === "🔥" ||
+        document.getElementById('tl').textContent === "🔥" && document.getElementById('ml').textContent === "🔥" && document.getElementById('bl').textContent === "🔥" ||
+        document.getElementById('tm').textContent === "🔥" && document.getElementById('c').textContent === "🔥" && document.getElementById('bm').textContent === "🔥" ||
+        document.getElementById('tr').textContent === "🔥" && document.getElementById('mr').textContent === "🔥" && document.getElementById('br').textContent === "🔥" ||
+        document.getElementById('tl').textContent === "🔥" && document.getElementById('c').textContent === "🔥" && document.getElementById('br').textContent === "🔥" ||
+        document.getElementById('tr').textContent === "🔥" && document.getElementById('c').textContent === "🔥" && document.getElementById('bl').textContent === "🔥") {
         endGame = true;
-        alert("X Wins");
+        alert("🎉🎉---🔥 Wins!---🎉🎉");
     }
-    if (document.getElementById('tl').textContent === "O" && document.getElementById('tm').textContent === "O" && document.getElementById('tr').textContent === "O" ||
-        document.getElementById('ml').textContent === "O" && document.getElementById('c').textContent === "O" && document.getElementById('mr').textContent === "O" ||
-        document.getElementById('bl').textContent === "O" && document.getElementById('bm').textContent === "O" && document.getElementById('br').textContent === "O" ||
-        document.getElementById('tl').textContent === "O" && document.getElementById('ml').textContent === "O" && document.getElementById('bl').textContent === "O" ||
-        document.getElementById('tm').textContent === "O" && document.getElementById('c').textContent === "O" && document.getElementById('bm').textContent === "O" ||
-        document.getElementById('tr').textContent === "O" && document.getElementById('mr').textContent === "O" && document.getElementById('br').textContent === "O" ||
-        document.getElementById('tl').textContent === "O" && document.getElementById('c').textContent === "O" && document.getElementById('br').textContent === "O" ||
-        document.getElementById('tr').textContent === "O" && document.getElementById('c').textContent === "O" && document.getElementById('bl').textContent === "O") {
+    if (document.getElementById('tl').textContent === "❄️" && document.getElementById('tm').textContent === "❄️" && document.getElementById('tr').textContent === "❄️" ||
+        document.getElementById('ml').textContent === "❄️" && document.getElementById('c').textContent === "❄️" && document.getElementById('mr').textContent === "❄️" ||
+        document.getElementById('bl').textContent === "❄️" && document.getElementById('bm').textContent === "❄️" && document.getElementById('br').textContent === "❄️" ||
+        document.getElementById('tl').textContent === "❄️" && document.getElementById('ml').textContent === "❄️" && document.getElementById('bl').textContent === "❄️" ||
+        document.getElementById('tm').textContent === "❄️" && document.getElementById('c').textContent === "❄️" && document.getElementById('bm').textContent === "❄️" ||
+        document.getElementById('tr').textContent === "❄️" && document.getElementById('mr').textContent === "❄️" && document.getElementById('br').textContent === "❄️" ||
+        document.getElementById('tl').textContent === "❄️" && document.getElementById('c').textContent === "❄️" && document.getElementById('br').textContent === "❄️" ||
+        document.getElementById('tr').textContent === "❄️" && document.getElementById('c').textContent === "❄️" && document.getElementById('bl').textContent === "❄️") {
         endGame = true;
-        alert("O Wins");
+        alert("🎉🎉---❄️ Wins!---🎉🎉");
     }
-    else {
-        console.log("No Win");
+
+    else if (turnCount == 9 && endGame == false) {
+        alert("Looks Like a Draw! 😕 Try Again?");
+        endGame = true;
     }
+
 }
 
 function restartGame() {
