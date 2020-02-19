@@ -15,11 +15,13 @@ function Move(e) {
     if (e.target.textContent === "X" || e.target.textContent === "O") {
         return;
     }
-    
+    else {
+
         e.target.textContent = player[turns]
         toggle();
         checkWin();
-    
+    }
+
 }
 
 
@@ -29,9 +31,20 @@ function toggle() {
     }
     else {
         turns = 0;
-        
+
     }
 }
 
+function checkWin(e) {
+    if (document.getElementById('tl').textContent === "X" && document.getElementById('tm').textContent === "X" && document.getElementById('tr').textContent === "X" || 
+        document.getElementById('ml').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('mr').textContent === "X" ||
+        document.getElementById('bl').textContent === "X" && document.getElementById('bm').textContent === "X" && document.getElementById('br').textContent === "X") {
+        endGame = true;
+        alert("X Wins");
+    }
+    else {
+        console.log("No Win");
+    }
+}
 
 
