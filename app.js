@@ -36,7 +36,7 @@ function toggle() {
 }
 
 function checkWin(e) {
-    if (document.getElementById('tl').textContent === "X" && document.getElementById('tm').textContent === "X" && document.getElementById('tr').textContent === "X" || 
+    if (document.getElementById('tl').textContent === "X" && document.getElementById('tm').textContent === "X" && document.getElementById('tr').textContent === "X" ||
         document.getElementById('ml').textContent === "X" && document.getElementById('c').textContent === "X" && document.getElementById('mr').textContent === "X" ||
         document.getElementById('bl').textContent === "X" && document.getElementById('bm').textContent === "X" && document.getElementById('br').textContent === "X" ||
         document.getElementById('tl').textContent === "X" && document.getElementById('ml').textContent === "X" && document.getElementById('bl').textContent === "X" ||
@@ -47,9 +47,24 @@ function checkWin(e) {
         endGame = true;
         alert("X Wins");
     }
+    if (document.getElementById('tl').textContent === "O" && document.getElementById('tm').textContent === "O" && document.getElementById('tr').textContent === "O" ||
+        document.getElementById('ml').textContent === "O" && document.getElementById('c').textContent === "O" && document.getElementById('mr').textContent === "O" ||
+        document.getElementById('bl').textContent === "O" && document.getElementById('bm').textContent === "O" && document.getElementById('br').textContent === "O" ||
+        document.getElementById('tl').textContent === "O" && document.getElementById('ml').textContent === "O" && document.getElementById('bl').textContent === "O" ||
+        document.getElementById('tm').textContent === "O" && document.getElementById('c').textContent === "O" && document.getElementById('bm').textContent === "O" ||
+        document.getElementById('tr').textContent === "O" && document.getElementById('mr').textContent === "O" && document.getElementById('br').textContent === "O" ||
+        document.getElementById('tl').textContent === "O" && document.getElementById('c').textContent === "O" && document.getElementById('br').textContent === "O" ||
+        document.getElementById('tr').textContent === "O" && document.getElementById('c').textContent === "O" && document.getElementById('bl').textContent === "O") {
+        endGame = true;
+        alert("O Wins");
+    }
     else {
         console.log("No Win");
     }
+}
+
+function restartGame() {
+    location.reload();
 }
 
 
